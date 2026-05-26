@@ -1,301 +1,120 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-</script>
-  <amp-auto-ads type="adsense"
-        data-ad-client="ca-pub-3637691137658076">
-</amp-auto-ads>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3637691137658076"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <title id="site-title">Web Sayfası</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğa Koleji 5. sınıf ödev cevapları</title>
+    <style>
+        /* Renk Paleti ve Genel Ayarlar */
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #ffffff;
+            --accent-color: #3b82f6;
+            --accent-hover: #2563eb;
+        }
 
-    button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 18px;
-      transition: transform 0.2s;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    button:hover {
-      transform: scale(1.2);
-    }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
 
-    #text-area-section,
-    #deneme-section,
-    #controls,
-    #new-buttons,
-    #everything-buttons,
-    #alert-mode,
-    #not-website-section {
-      display: none;
-    }
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-    #deneme-text {
-      font-size: 24px;
-    }
+        /* PDF'lerin alt alta dizildiği ve sıkışmayı önleyen ana taşıyıcı */
+        .pdf-container {
+            display: flex;
+            flex-direction: column;
+            gap: 60px; /* PDF'ler arasındaki boşluk. Sıkışmayı bu engeller. */
+            max-width: 900px;
+            margin: 0 auto; /* Sayfayı ortalar */
+        }
 
-    input[type="color"] {
-      margin: 10px;
-    }
+        /* Her bir PDF için oluşturulan kart tasarımı */
+        .pdf-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-    #counter-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      margin-top: 50px;
-    }
+        .pdf-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
 
-    #counter-value {
-      font-size: 20px;
-      font-weight: bold;
-    }
+        /* Site içinde PDF'i gösteren pencere */
+        .pdf-viewer {
+            width: 100%;
+            height: 700px; /* Mouse tekerleğiyle sayfa kayarken PDF'in rahat okunması için ideal yükseklik */
+            border: 2px solid #333;
+            border-radius: 8px;
+            background-color: #fff; /* Transparan PDF'lerde yazının okunabilmesi için arka plan beyaz */
+        }
 
-    #dummy-slider,
-    #vertical-slider {
-      display: none;
-    }
+        /* İndirme Butonu */
+        .download-btn {
+            align-self: flex-start;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
 
-    #vertical-slider {
-      -webkit-appearance: slider-vertical;
-      writing-mode: bt-lr;
-      width: 8px;
-      height: 100px;
-    }
-
-    .small-btn {
-      font-size: 12px;
-      padding: 4px 8px;
-      margin: 3px;
-    }
-  </style>
+        .download-btn:hover {
+            background-color: var(--accent-hover);
+        }
+    </style>
 </head>
 <body>
-  <h1 id="page-title">Web Sayfası</h1>
 
-  <div id="main-buttons">
-    <button id="btn1">Yazı Alanı</button>
-    <button id="btn2">Deneme Yazısı</button>
-    <button id="btn3">Başlığı Değiştir</button>
-  </div>
+    <div class="header">
+        <h1>Cevaplar</h1>
+        <p>Aşağıya kaydırarak belgelere göz atabilir veya indirebilirsin.</p>
+        <p>(yazılıya hazırlık döneminden dolayı yazılı çalışmaları vardır!!!)</p>
+    </div>
 
-  <div id="everything-buttons">
-    <div id="small-buttons"></div>
-    <button id="resetBtn">Tıkla</button>
-  </div>
+    <div class="pdf-container">
 
-  <div id="new-buttons">
-    <button id="decreaseBtn">5</button>
-    <button id="changeFontBtn">Yazı Tipi Değiştir</button>
-  </div>
+        <div class="pdf-card">
+            <div class="pdf-title">Matematik</div>
+            
+            <iframe class="pdf-viewer" src="pdf-dosyalari/ornek1.pdf"></iframe>
+            
+            <a class="download-btn" href="pdf-dosyalari/ornek1.pdf" download>
+                PDF'i İndir
+            </a>
+        </div>
+        <div class="pdf-card">
+            <div class="pdf-title">Fen Bilimleri</div>
+            
+            <iframe class="pdf-viewer" src="pdf-dosyalari/ornek2.pdf"></iframe>
+            
+            <a class="download-btn" href="pdf-dosyalari/ornek2.pdf" download>
+                PDF'i İndir
+            </a>
+        </div>
+        
 
-  <div id="alert-mode">
-    <button id="alertBtn">Dikkat</button>
-  </div>
+    </div>
 
-  <div id="text-area-section">
-    <textarea id="user-text" rows="6" cols="40" placeholder="Bir şeyler yaz..."></textarea><br>
-    <input type="color" id="textColorPicker" value="#000000"><br>
-    <button id="backFromText">Geri Dön</button>
-  </div>
-
-  <div id="deneme-section">
-    <p id="deneme-text">Deneme</p>
-    <input type="color" id="denemeColorPicker" value="#000000"><br>
-    <button id="toggleDeneme">Geri Dön</button>
-  </div>
-
-  <div id="controls">
-    <input type="color" id="buttonColorPicker" value="#000000">
-  </div>
-
-  <div id="counter-container">
-    <input type="range" id="dummy-slider" min="0" max="100" value="50">
-    <button id="counterBtn">Sayaç Artır</button>
-    <span id="counter-value">0</span>
-    <input type="range" id="vertical-slider" min="1" max="2" value="1">
-  </div>
-
-  <div id="not-website-section">
-    <h1 id="not-website-title">bu bir website değil</h1>
-  </div>
-
-  <script>
-    const mainButtons = document.getElementById("main-buttons");
-    const textAreaSection = document.getElementById("text-area-section");
-    const denemeSection = document.getElementById("deneme-section");
-    const controls = document.getElementById("controls");
-    const newButtons = document.getElementById("new-buttons");
-    const everythingButtons = document.getElementById("everything-buttons");
-    const smallButtonsContainer = document.getElementById("small-buttons");
-    const alertMode = document.getElementById("alert-mode");
-    const counterValue = document.getElementById("counter-value");
-    const dummySlider = document.getElementById("dummy-slider");
-    const verticalSlider = document.getElementById("vertical-slider");
-    const userText = document.getElementById("user-text");
-    const pageTitle = document.getElementById("page-title");
-    const notWebsiteSection = document.getElementById("not-website-section");
-    const allButtons = () => document.querySelectorAll("button");
-
-    let counter = 0;
-    let counterLimit = 100;
-    let isNevermindMode = false;
-    let fontList = ["Arial, sans-serif", "Courier New, monospace", "Georgia, serif", "Comic Sans MS, cursive"];
-    let fontIndex = 0;
-    let decreaseValue = 5;
-    let titleButton = null;
-
-    document.getElementById("btn1").onclick = () => {
-      mainButtons.style.display = "none";
-      textAreaSection.style.display = "block";
-      controls.style.display = "block";
-    };
-
-    document.getElementById("backFromText").onclick = () => {
-      mainButtons.style.display = "block";
-      textAreaSection.style.display = "none";
-    };
-
-    document.getElementById("btn2").onclick = () => {
-      const show = denemeSection.style.display !== "block";
-      denemeSection.style.display = show ? "block" : "none";
-      mainButtons.style.display = show ? "none" : "block";
-      controls.style.display = "block";
-    };
-
-    document.getElementById("toggleDeneme").onclick = () => {
-      denemeSection.style.display = "none";
-      mainButtons.style.display = "block";
-    };
-
-    document.getElementById("btn3").onclick = () => {
-      document.title = "Nevermind";
-    };
-
-    document.getElementById("textColorPicker").oninput = () => {
-      userText.style.color = textColorPicker.value;
-    };
-
-    document.getElementById("denemeColorPicker").oninput = () => {
-      document.getElementById("deneme-text").style.color = denemeColorPicker.value;
-    };
-
-    document.getElementById("buttonColorPicker").oninput = () => {
-      allButtons().forEach(btn => {
-        btn.style.color = buttonColorPicker.value;
-      });
-    };
-
-    document.getElementById("counterBtn").onclick = () => {
-      counter++;
-      if (counter >= counterLimit) counter = 0;
-      counterValue.textContent = counter;
-    };
-
-    dummySlider.oninput = () => {
-      if (isNevermindMode) {
-        counter = parseInt(dummySlider.value);
-        counterValue.textContent = counter;
-      }
-    };
-
-    document.getElementById("decreaseBtn").onclick = () => {
-      if (decreaseValue > -5) {
-        decreaseValue--;
-        document.getElementById("decreaseBtn").textContent = decreaseValue;
-        if (decreaseValue === 0) {
-          verticalSlider.style.display = "inline-block";
-          alertMode.style.display = "block";
-        }
-        if (decreaseValue === -5 && !titleButton) {
-          pageTitle.innerHTML = '';
-          titleButton = document.createElement("button");
-          titleButton.textContent = "Web Sayfası";
-          titleButton.onclick = () => {
-            document.title = "not website";
-            notWebsiteSection.style.display = "block";
-            titleButton.remove();
-            titleButton = null;
-          };
-          pageTitle.parentNode.insertBefore(titleButton, pageTitle);
-        }
-      }
-    };
-
-    verticalSlider.oninput = () => {
-      const scale = parseFloat(verticalSlider.value);
-      allButtons().forEach(btn => {
-        btn.style.transform = `scale(${scale})`;
-      });
-    };
-
-    document.getElementById("changeFontBtn").onclick = () => {
-      fontIndex = (fontIndex + 1) % fontList.length;
-      document.body.style.fontFamily = fontList[fontIndex];
-    };
-
-    document.getElementById("resetBtn").onclick = () => {
-      document.title = "Web Sayfası";
-      everythingButtons.style.display = "none";
-      mainButtons.style.display = "block";
-      document.body.style.fontFamily = fontList[0];
-      smallButtonsContainer.innerHTML = "";
-    };
-
-    document.getElementById("alertBtn").onclick = () => {
-      alertMode.style.display = "none";
-      textAreaSection.style.display = "block";
-      mainButtons.style.display = "none";
-      controls.style.display = "none";
-      denemeSection.style.display = "none";
-      everythingButtons.style.display = "none";
-      newButtons.style.display = "none";
-      document.getElementById("backFromText").style.display = "none";
-      userText.value = "";
-      userText.placeholder = "bir şifre(g1f6k?) yaz...";  //g1f6k4
-    };
-
-    userText.addEventListener("input", () => {
-      const value = userText.value.trim().toLowerCase();
-      if (value === "nevermind") {
-        isNevermindMode = true;
-        counter = 0;
-        counterLimit = 200;
-        dummySlider.style.display = "inline-block";
-        newButtons.style.display = "block";
-        document.body.style.fontFamily = fontList[1];
-        counterValue.textContent = counter;
-        document.getElementById("backFromText").style.display = "inline-block";
-        userText.placeholder = "Bir şeyler yaz...";
-      } else if (value === "everything") {
-        document.title = "everything";
-        mainButtons.style.display = "none";
-        everythingButtons.style.display = "block";
-        smallButtonsContainer.innerHTML = "";
-        for (let i = 0; i < 20; i++) {
-          const btn = document.createElement("button");
-          btn.textContent = "everything";
-          btn.className = "small-btn";
-          smallButtonsContainer.appendChild(btn);
-        }
-      } else if (value === "g1f6k4") {
-        textAreaSection.style.display = "none";
-        alertMode.style.display = "none";
-        mainButtons.style.display = "block";
-        userText.value = "";
-        document.getElementById("backFromText").style.display = "inline-block";
-        userText.placeholder = "Bir şeyler yaz...";
-      }
-    });
-  </script>
 </body>
 </html>
