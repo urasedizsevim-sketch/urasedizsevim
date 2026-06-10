@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3637691137658076"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3637691137658076" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doğa Koleji 5. sınıf ödev cevapları</title>
+    <title>5. Sınıf Ders Notları ve Çalışma Kağıtları</title>
     <style>
         /* Renk Paleti ve Genel Ayarlar */
         :root {
             --bg-color: #121212;
             --card-bg: #1e1e1e;
             --text-color: #ffffff;
+            --text-muted: #b3b3b3;
             --accent-color: #3b82f6;
             --accent-hover: #2563eb;
         }
@@ -35,38 +35,58 @@
             margin-bottom: 50px;
         }
 
-        /* PDF'lerin alt alta dizildiği ve sıkışmayı önleyen ana taşıyıcı */
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* İçerik Konteyneri */
         .pdf-container {
             display: flex;
             flex-direction: column;
-            gap: 60px; /* PDF'ler arasındaki boşluk. Sıkışmayı bu engeller. */
+            gap: 60px;
             max-width: 900px;
-            margin: 0 auto; /* Sayfayı ortalar */
+            margin: 0 auto;
         }
 
-        /* Her bir PDF için oluşturulan kart tasarımı */
+        /* Kart Tasarımı */
         .pdf-card {
             background-color: var(--card-bg);
-            padding: 25px;
+            padding: 30px;
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
 
         .pdf-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 600;
+            color: var(--accent-color);
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
         }
 
-        /* Site içinde PDF'i gösteren pencere */
+        /* SEO ve AdSense için Metin Alanı */
+        .content-text {
+            font-size: 1.05rem;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+
+        /* PDF Görüntüleyici */
         .pdf-viewer {
             width: 100%;
-            height: 700px; /* Mouse tekerleğiyle sayfa kayarken PDF'in rahat okunması için ideal yükseklik */
+            height: 700px;
             border: 2px solid #333;
             border-radius: 8px;
-            background-color: #fff; /* Transparan PDF'lerde yazının okunabilmesi için arka plan beyaz */
+            background-color: #fff;
         }
 
         /* İndirme Butonu */
@@ -84,62 +104,105 @@
         .download-btn:hover {
             background-color: var(--accent-hover);
         }
+
+        /* Site Alt Bilgisi (Footer) - AdSense için Önemli */
+        .footer {
+            margin-top: 80px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>Cevaplar</h1>
-        <p>Aşağıya kaydırarak belgelere göz atabilir veya indirebilirsin.</p>
-        <p>(yazılıya hazırlık döneminden dolayı yazılı çalışmaları vardır!!!)</p>
+        <h1>5. Sınıf Çalışma Notları</h1>
+        <p>Yazılıya hazırlık sürecinde sizlere yardımcı olacak konu özetleri ve çalışma kağıtları.</p>
     </div>
 
     <div class="pdf-container">
 
         <div class="pdf-card">
-            <div class="pdf-title">Matematik</div>
+            <div class="pdf-title">Matematik - 1. Dönem Konu Özeti</div>
+            
+            <div class="content-text">
+                <p>Bu bölümde 5. sınıf matematik dersinin temel konularını ele alıyoruz. Doğal sayılar, kesirler ve yüzdeler gibi konularda zorlanıyorsanız aşağıdaki çalışma kağıdı tam size göre. Notları incelerken özellikle problem çözümlerindeki adımlara dikkat etmenizi öneririm. (<strong>Not:</strong> Buraya konuyla ilgili kendi cümlelerinle en az 3-4 paragraf bilgi yazmalısın ki Google botları bu sayfayı kaliteli bir makale olarak görsün.)</p>
+            </div>
             
             <iframe class="pdf-viewer" src="pdf-dosyalari/ornek1.pdf"></iframe>
             
             <a class="download-btn" href="pdf-dosyalari/ornek1.pdf" download>
-                PDF'i İndir
+                Matematik Notlarını İndir
             </a>
         </div>
+
         <div class="pdf-card">
-            <div class="pdf-title">Fen Bilimleri</div>
+            <div class="pdf-title">Fen Bilimleri - Güneş, Dünya ve Ay</div>
             
+            <div class="content-text">
+                <p>Fen bilimleri dersinin en eğlenceli ünitelerinden biri olan Güneş, Dünya ve Ay sistemi hakkında hazırladığımız çalışma notlarını aşağıdan inceleyebilirsiniz. Gezegenlerin hareketleri ve Ay'ın evreleri sınavlarda sıkça karşımıza çıkar. Aşağıdaki PDF dosyasında bu konuların detaylı özetini bulabilirsiniz...</p>
+            </div>
+
             <iframe class="pdf-viewer" src="pdf-dosyalari/ornek2.pdf"></iframe>
             
             <a class="download-btn" href="pdf-dosyalari/ornek2.pdf" download>
-                PDF'i İndir
+                Fen Bilimleri Notlarını İndir
             </a>
         </div>
-                <div class="pdf-card">
-            <div class="pdf-title">Sosyal Bilgiler</div>
+
+        <div class="pdf-card">
+            <div class="pdf-title">Sosyal Bilgiler - Haklarımı Öğreniyorum</div>
             
-            <iframe class="pdf-viewer" src="pdf-dosyalari/ornek3.jpeg"></iframe>
+            <div class="content-text">
+                <p>Sosyal bilgiler dersinde birey ve toplum ünitesine ait harika bir zihin haritası hazırladık. Çocuk hakları, sorumluluklarımız ve rollerimiz hakkında bilmeniz gereken her şey bu görselde özetlenmiştir.</p>
+            </div>
+
+            <img class="pdf-viewer" src="pdf-dosyalari/ornek3.jpeg" alt="Sosyal Bilgiler Çalışma Kağıdı" style="object-fit: contain;">
             
             <a class="download-btn" href="pdf-dosyalari/ornek3.jpeg" download>
-                Fotoğrafı İndir
+                Görseli İndir
             </a>
-            <div class="pdf-card">
-            <div class="pdf-title">Almanca</div>
+        </div>
+
+        <div class="pdf-card">
+            <div class="pdf-title">İngilizce - Vocabulary (Kelime) Çalışması</div>
             
-            <iframe class="pdf-viewer" src="pdf-dosyalari/ornek4.pdf"></iframe>
-            
-            <a class="download-btn" href="pdf-dosyalari/ornek4.pdf" download>
-                PDF'i İndir
-            </a>
-            <div class="pdf-card">
-            <div class="pdf-title">İnglizce</div>
-            
+            <div class="content-text">
+                <p>İngilizce dersinde başarılı olmanın en büyük sırrı kelime dağarcığını geliştirmektir. 5. sınıfın ilk ünitelerinde geçen kelimelerin Türkçe anlamları, örnek cümle kullanımları ve okunuş kurallarını barındıran bu çalışma kağıdı sayesinde yazılılara tam hazır gireceksiniz.</p>
+            </div>
+
             <iframe class="pdf-viewer" src="pdf-dosyalari/ornek5.pdf"></iframe>
             
             <a class="download-btn" href="pdf-dosyalari/ornek5.pdf" download>
-                PDF'i İndir
+                İngilizce Notlarını İndir
             </a>
-        
+        </div>
 
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 5. Sınıf Çalışma Kaynakları. Tüm hakları saklıdır.</p>
+        <div class="footer-links">
+            <a href="#">Hakkımızda</a> | 
+            <a href="#">İletişim</a> | 
+            <a href="#">Gizlilik Politikası (Privacy Policy)</a>
+        </div>
     </div>
 
 </body>
