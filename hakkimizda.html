@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımızda</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #ffffff;
+            --text-muted: #b3b3b3;
+            --accent-color: #3b82f6;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+        .about-card {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            text-align: center;
+            border-top: 4px solid var(--accent-color);
+        }
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .back-btn:hover {
+            background-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="about-card">
+        <h1>Ben Kimim?</h1>
+        <p>Selam! Ben kodlamayla, teknolojiyle ve bilgisayarlarla uğraşmayı çok seven bir öğrenciyim. İnternette araştırma yapmayı ve yeni şeyler üretmeyi tutku haline getirdim.</p>
+        <p>Bu siteyi kurmamın asıl amacı, hem yazılılara hazırlık sürecinde kendi çalışma notlarımı dijital bir arşivde toplamak hem de benim gibi sınavlara hazırlanan arkadaşlarıma düzenli ve kaliteli kaynaklar sunabilmek. Umarım buradaki içerikler derslerinde sana da yardımcı olur!</p>
+        <a href="index.html" class="back-btn">⬅ Ana Sayfaya Dön</a>
+    </div>
+
+</body>
+</html>
