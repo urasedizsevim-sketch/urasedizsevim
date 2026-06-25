@@ -41,16 +41,29 @@
             color: var(--text-muted);
             margin-bottom: 30px;
         }
-        .email-text {
+        
+        /* Yeni İletişim Bilgileri Alanı */
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .info-box {
             display: block;
             text-align: center;
             font-weight: bold;
             color: #fff;
-            margin-bottom: 20px;
-            padding: 10px;
+            padding: 12px;
             background-color: var(--input-bg);
             border-radius: 8px;
+            border: 1px solid #444;
+            transition: border-color 0.3s ease;
         }
+        .info-box:hover {
+            border-color: var(--accent-color);
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -105,7 +118,11 @@
         <h1>Bana Ulaşın</h1>
         <p>Sitedeki içeriklerle ilgili görüş, öneri veya sorularınız için aşağıdaki formu doldurabilir ya da doğrudan mail atabilirsiniz.</p>
         
-        <span class="email-text">📧 urasedizsevim@gmail.com</span>
+        <!-- İletişim Bilgileri Grubu -->
+        <div class="contact-details">
+            <span class="info-box">📧 urasedizsevim@gmail.com</span>
+            <span class="info-box">📞 +90 551 083 41 85</span>
+        </div>
 
         <!-- FORMSPREE BAĞLANTISI BURADA -->
         <form action="https://formspree.io/f/xpqgpyor" method="POST">
