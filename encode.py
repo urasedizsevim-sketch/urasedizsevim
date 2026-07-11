@@ -32,3 +32,4 @@ def ues_sifrele(metin):
     dosya.close()
     
     return sifreli_metin, tuz_anahtari
+ 
