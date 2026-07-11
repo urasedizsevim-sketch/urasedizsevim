@@ -35,31 +35,26 @@
     </py-config>
 
     <!-- Ana Python Mantığı -->
-    <script type="py">
+<script type="py">
         from pyscript import document
-        # Kendi dosyalarını içe aktar
         import encode 
         import decode 
 
-        # Şifrele butonuna basılınca çalışacak
         def sifrele_tiklandi(event):
-            # Textarea'daki yazıyı al
+            # HTML'deki metin kutusundan yazıyı alıyoruz
             girdi = document.getElementById("metinGirdisi").value
             
-            # encode.py içindeki şifreleme fonksiyonunu kullan (fonksiyon adını kendine göre değiştir)
-            sifrelenmis_metin = encode.senin_sifreleme_fonksiyonun(girdi)
+            # Yazdığımız ues_sifrele fonksiyonuna metni gönderiyoruz
+            # Fonksiyon bize iki değer döndürüyor: metin ve key
+            sifreli_metin, anahtar = encode.ues_sifrele(girdi)
             
-            # Sonucu ekrana yazdır
-            document.getElementById("sonuc").innerText = "Sonuç: " + sifrelenmis_metin
+            # Sonucu HTML'de gösterecek şekilde formatlıyoruz
+            cikis_metni = f"UESLocker: {sifreli_metin} <br><br> UESLocker(key): {anahtar}"
+            document.getElementById("sonuc").innerHTML = cikis_metni
 
-        # Çöz butonuna basılınca çalışacak
         def coz_tiklandi(event):
-            girdi = document.getElementById("metinGirdisi").value
-            
-            # decode.py içindeki çözme fonksiyonunu kullan (fonksiyon adını kendine göre değiştir)
-            cozulmus_metin = decode.senin_cozme_fonksiyonun(girdi)
-            
-            document.getElementById("sonuc").innerText = "Sonuç: " + cozulmus_metin
+            # Burası şimdilik boş, decode dosyası hazır olunca dolduracağız
+            pass
     </script>
 
 </body>
