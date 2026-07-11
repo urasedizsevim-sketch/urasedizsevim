@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Şifreleyici Aracım</title>
+    <!-- PyScript Kütüphaneleri -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 500px; margin: auto; }
+        textarea { width: 100%; height: 100px; margin-bottom: 10px; }
+        button { padding: 10px 15px; margin-right: 5px; cursor: pointer; }
+        #sonuc { margin-top: 20px; font-weight: bold; word-break: break-all; }
+    </style>
+</head>
+<body>
+
+    <h2>Gizli Mesaj Şifreleyici</h2>
+    
+    <textarea id="metinGirdisi" placeholder="Buraya metni girin..."></textarea>
+    <br>
+    
+    <!-- Butonlara tıklandığında Python fonksiyonları çalışacak -->
+    <button py-click="sifrele_tiklandi">Şifrele</button>
+    <button py-click="coz_tiklandi">Şifreyi Çöz</button>
+
+    <div id="sonuc"></div>
+
+    <!-- Python dosyalarını HTML'e tanıtıyoruz -->
+    <py-config>
+        [files]
+        "encode.py" = "./encode.py"
+        "decode.py" = "./decode.py"
+    </py-config>
+
+    <!-- Ana Python Mantığı -->
+    <script type="py">
+        from pyscript import document
+        # Kendi dosyalarını içe aktar
+        import encode 
+        import decode 
+
+        # Şifrele butonuna basılınca çalışacak
+        def sifrele_tiklandi(event):
+            # Textarea'daki yazıyı al
+            girdi = document.getElementById("metinGirdisi").value
+            
+            # encode.py içindeki şifreleme fonksiyonunu kullan (fonksiyon adını kendine göre değiştir)
+            sifrelenmis_metin = encode.senin_sifreleme_fonksiyonun(girdi)
+            
+            # Sonucu ekrana yazdır
+            document.getElementById("sonuc").innerText = "Sonuç: " + sifrelenmis_metin
+
+        # Çöz butonuna basılınca çalışacak
+        def coz_tiklandi(event):
+            girdi = document.getElementById("metinGirdisi").value
+            
+            # decode.py içindeki çözme fonksiyonunu kullan (fonksiyon adını kendine göre değiştir)
+            cozulmus_metin = decode.senin_cozme_fonksiyonun(girdi)
+            
+            document.getElementById("sonuc").innerText = "Sonuç: " + cozulmus_metin
+    </script>
+
+</body>
+</html>
