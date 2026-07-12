@@ -25,11 +25,6 @@ def ues_sifrele(metin):
 
     sifreli_metin = "x".join(sifreli_liste)
 
-    dosya = open("history.txt", "a", encoding="utf-8")
-    dosya.write("\n\nmetin:\n" + metin)
-    dosya.write("\nşifreli metin:\n" + sifreli_metin)
-    dosya.write("\nkey'i:\n" + str(tuz_anahtari))
-    dosya.close()
     
     return sifreli_metin, tuz_anahtari
  
