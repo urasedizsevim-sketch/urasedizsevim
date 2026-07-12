@@ -20,7 +20,6 @@
     <h2>UESLocker Şifreleyici</h2>
     
     <textarea id="metinGirdisi" placeholder="Şifrelenecek veya çözülecek metni buraya girin..."></textarea>
-    
     <input type="number" id="keyGirdisi" placeholder="Şifre çözerken gereken Key'i buraya girin (Şifrelemede boş bırakın)">
     
     <button py-click="sifrele_tiklandi">Şifrele</button>
@@ -28,36 +27,76 @@
 
     <div id="sonuc">Sonuç burada görünecek...</div>
 
+    <!-- py-config bloğunu boş bırakıyoruz, çünkü dışarıdan dosya indirmeyeceğiz! -->
     <py-config>
-        files = ["/encode.py", "/desifre.py"]
     </py-config>
 
     <script type="py">
         from pyscript import document
-        import encode 
-        import desifre 
+        import random
 
+        # SENİN SÖZLÜKLERİN VE FONKSİYONLARIN DOĞRUDAN BURADA
+        listA = {
+            "A": 1, "B": 2, "C": 3, "Ç": 4, "D": 5, "E": 6, "F": 7, "G": 8, "Ğ": 9,
+            "H": 10, "I": 11, "İ": 12, "J": 13, "K": 14, "L": 15, "M": 16, "N": 17,
+            "O": 18, "Ö": 19, "P": 20, "R": 21, "S": 22, "Ş": 23, "T": 24, "U": 25,
+            "Ü": 26, "V": 27, "Y": 28, "Z": 29, " ": 30, "!": 31, "'": 32, "^": 33,
+            "+": 34, "%": 35, "&": 36, "/": 37, "(": 38, ")": 39, "=": 40, "*": 41,
+            "?": 42, "-": 43, "_": 44, "|": 45, ",": 46, ".": 47, ":": 48, ";": 49,
+            "@": 50, "<": 51, ">": 52, "#": 53, "$": 54, "{": 55, "[": 56, "]": 57,
+            "}": 58, "~": 59,
+        }
+
+        ters_listA = {v: k for k, v in listA.items()}
+
+        def ues_sifrele(metin):
+            metin = metin.upper().replace("i", "İ").replace("ı", "I")
+            tuz_anahtari = random.randint(100, 999)
+            sifreli_liste = []
+            for sira, harf in enumerate(metin):
+                if harf in listA:
+                    orijinal_deger = listA[harf]
+                    karmasik_sayi = (orijinal_deger * (sira + 1)) + tuz_anahtari + (orijinal_deger ** 2)
+                    sifreli_liste.append(str(karmasik_sayi))
+            sifreli_metin = "x".join(sifreli_liste)
+            return sifreli_metin, tuz_anahtari
+
+        def ues_sifre_coz(sifreli_girdi, tuz_anahtari):
+            sifreli_girdi = sifreli_girdi.strip()
+            parcalar = sifreli_girdi.split("x")
+            cozulen_harfler = []
+            for sira, parca in enumerate(parcalar):
+                if parca.isdigit():
+                    karmasik_sayi = int(parca)
+                    bulundu = False
+                    for muhtemel_deger in range(1, 60):
+                        test_sayisi = (muhtemel_deger * (sira + 1)) + int(tuz_anahtari) + (muhtemel_deger ** 2)
+                        if test_sayisi == karmasik_sayi:
+                            if muhtemel_deger in ters_listA:
+                                cozulen_harfler.append(ters_listA[muhtemel_deger])
+                                bulundu = True
+                                break
+                    if not bulundu:
+                        cozulen_harfler.append("?")
+            return "".join(cozulen_harfler)
+
+        # BUTON TETİKLEYİCİLERİ
         def sifrele_tiklandi(event):
             girdi = document.getElementById("metinGirdisi").value
-            
             if not girdi:
                 document.getElementById("sonuc").innerHTML = "Lütfen şifrelenecek bir metin girin!"
                 return
-
-            sifreli_metin, anahtar = encode.ues_sifrele(girdi)
+            sifreli_metin, anahtar = ues_sifrele(girdi)
             cikis_metni = f"<b>UESLocker:</b> {sifreli_metin} <br><br> <b>UESLocker(key):</b> {anahtar}"
             document.getElementById("sonuc").innerHTML = cikis_metni
 
         def coz_tiklandi(event):
             girdi = document.getElementById("metinGirdisi").value
             anahtar = document.getElementById("keyGirdisi").value
-            
             if not girdi or not anahtar:
                 document.getElementById("sonuc").innerHTML = "Hata: Şifreyi çözmek için hem metni hem de Key değerini girmelisiniz!"
                 return
-
-            # decode.py içindeki fonksiyonu çağırıyoruz
-            cozulmus_metin = desifre.ues_sifre_coz(girdi, anahtar)
+            cozulmus_metin = ues_sifre_coz(girdi, anahtar)
             document.getElementById("sonuc").innerHTML = f"<b>Çözülen Metin:</b> {cozulmus_metin}"
     </script>
 
