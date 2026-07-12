@@ -35,7 +35,7 @@
     <script type="py">
         from pyscript import document
         import encode 
-        import decode 
+        import desifre 
 
         def sifrele_tiklandi(event):
             girdi = document.getElementById("metinGirdisi").value
@@ -57,7 +57,7 @@
                 return
 
             # decode.py içindeki fonksiyonu çağırıyoruz
-            cozulmus_metin = decode.ues_sifre_coz(girdi, anahtar)
+            cozulmus_metin = desifre.ues_sifre_coz(girdi, anahtar)
             document.getElementById("sonuc").innerHTML = f"<b>Çözülen Metin:</b> {cozulmus_metin}"
     </script>
 
