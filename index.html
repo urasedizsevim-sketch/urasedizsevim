@@ -2,17 +2,73 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UESLocker</title>
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
     
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; max-width: 500px; margin: auto; background-color: #f4f4f9; }
-        textarea, input { width: 100%; margin-bottom: 10px; padding: 8px; box-sizing: border-box; }
-        textarea { height: 100px; }
-        button { padding: 10px 15px; margin-right: 5px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px; }
-        button:hover { background-color: #0056b3; }
-        #sonuc { margin-top: 20px; padding: 15px; background: #fff; border: 1px solid #ccc; word-break: break-all; min-height: 50px;}
+        * {
+            box-sizing: border-box;
+        }
+        body { 
+            font-family: Arial, sans-serif; 
+            font-size: 16px; 
+            line-height: 1.5;
+            padding: 15px; 
+            max-width: 500px; 
+            margin: 0 auto; 
+            background-color: #f4f4f9; 
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        textarea, input { 
+            width: 100%; 
+            margin-bottom: 12px; 
+            padding: 12px; 
+            font-size: 1rem; 
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #fff;
+        }
+        textarea { 
+            height: 110px; 
+            resize: vertical;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        button { 
+            flex: 1;
+            padding: 12px 10px; 
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 6px; 
+            transition: background-color 0.2s ease;
+        }
+        button:hover { 
+            background-color: #0056b3; 
+        }
+        #sonuc { 
+            padding: 15px; 
+            background: #fff; 
+            border: 1px solid #ccc; 
+            border-radius: 6px;
+            word-break: break-all; 
+            min-height: 60px;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -20,14 +76,15 @@
     <h2>UESLocker Şifreleyici</h2>
     
     <textarea id="metinGirdisi" placeholder="Şifrelenecek veya çözülecek metni buraya girin..."></textarea>
-    <input type="number" id="keyGirdisi" placeholder="Şifre çözerken gereken Key'i buraya girin (Şifrelemede boş bırakın)">
+    <input type="number" id="keyGirdisi" placeholder="Şifre çözerken gereken Key'i girin">
     
-    <button py-click="sifrele_tiklandi">Şifrele</button>
-    <button py-click="coz_tiklandi">Şifreyi Çöz</button>
+    <div class="btn-group">
+        <button py-click="sifrele_tiklandi">Şifrele</button>
+        <button py-click="coz_tiklandi">Şifreyi Çöz</button>
+    </div>
 
     <div id="sonuc">Sonuç burada görünecek...</div>
 
-    <!-- py-config bloğunu boş bırakıyoruz, çünkü dışarıdan dosya indirmeyeceğiz! -->
     <py-config>
     </py-config>
 
@@ -35,7 +92,6 @@
         from pyscript import document
         import random
 
-        # SENİN SÖZLÜKLERİN VE FONKSİYONLARIN DOĞRUDAN BURADA
         listA = {
             "A": 1, "B": 2, "C": 3, "Ç": 4, "D": 5, "E": 6, "F": 7, "G": 8, "Ğ": 9,
             "H": 10, "I": 11, "İ": 12, "J": 13, "K": 14, "L": 15, "M": 16, "N": 17,
@@ -80,7 +136,6 @@
                         cozulen_harfler.append("?")
             return "".join(cozulen_harfler)
 
-        # BUTON TETİKLEYİCİLERİ
         def sifrele_tiklandi(event):
             girdi = document.getElementById("metinGirdisi").value
             if not girdi:
